@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <img src="image.jpg" alt="">
+    <div id="main__container">
+        
+        <h1>Temperature Converter</h1>
+        Enter number : <input type="text" id="number" placeholder="Enter number">
+        <label for="degree">Unit</label>
+        <select id="degree">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+        <button id="btns">Submit</button>
+       <div id="ans">
+       </div>
+    </div>
+       
+    <script>
+        document.getElementById("btns").addEventListener("click",process);
+        function process()
+        {
+        let num = parseInt(document.getElementById("number").value);
+        let degree = document.getElementById("degree").value;
+        let reslut;
+        // document.write(num);
+        if(isNaN(num))
+        {
+            result="Enter value";
+        }
+        else{
+        if(degree=="celsius")
+        {
+            result = `${num} °C = ${(num * 9/5) + 32} °F = ${num + 273.15} K`;
+        }
+        else if(degree=="fahrenheit")
+        {
+            result = `${num} °F = ${(num - 32) * 5/9} °C = ${((num - 32) * 5/9) + 273.15} K`;
+        }
+        else if(degree=="kelvin")
+        {
+            result = `${num} K = ${num - 273.15} °C = ${(num - 273.15) * 9/5 + 32} °F`;
+        }
+        }
+        document.getElementById('ans').innerText = result;
+        return false;
+        }  
+    </script>
+    
+</body>
+</html>
